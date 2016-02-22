@@ -1,16 +1,17 @@
 body{
 	background-color: ghostwhite;
 }
-.box h3{
-	text-align:center;
-	position:relative;
-	top:80px;
-}
+
 .box {
 	width:70%;
 	height:200px;
 	background:#FFF;
 	margin:40px auto;
+  h3{
+  	text-align:center;
+  	position:relative;
+  	top:80px;
+  }
 }
 
 /*==================================================
@@ -20,23 +21,30 @@ body{
 {
   position: relative;
 }
-.effect2:before, .effect2:after
-{
+
+.shadow {
   z-index: -1;
   position: absolute;
   content: "";
   bottom: 15px;
-  left: 10px;
   width: 50%;
   top: 80%;
   max-width:300px;
   background: #777;
   box-shadow: 0 15px 10px #777;
+}
+
+$offset : 10px;
+
+.effect2:before
+{
+  @extend .shadow;
+  left: $offset;
   transform: rotate(-3deg);
 }
 .effect2:after
 {
+  @extend .shadow;
   transform: rotate(3deg);
-  right: 10px;
-  left: auto;
+  right: $offset;
 }
